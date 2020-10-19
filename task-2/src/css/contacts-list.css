@@ -1,0 +1,63 @@
+.contactsList__item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.contactsList__item_info {
+  display: block;
+  width: 18%;
+  border: 1px solid black;
+}
+
+.contactsList__item_text {
+  padding-left: 5px;
+  display: block;
+  width: 100%;
+}
+
+.firstCol {
+  width: 35%;
+  background-color: rgb(101, 155, 255);
+}
+
+.secondCol {
+  display: flex;
+  flex-direction: row;
+  width: 35%;
+  background-color: rgb(40, 255, 136);
+}
+
+.thirdCol {
+  background-color: rgb(40, 255, 136);
+  border-left: 1px solid black;
+}
+
+.fourthCol {
+  background-color: rgb(252, 195, 89);
+}
+
+.fifthCol {
+  background-color: rgb(252, 195, 89);
+}
+
+.List_header {
+  font-weight: bold;
+  background-color: #fff;
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .contactsList__item_text {
+    width: 100%;
+  }
+
+  .secondCol {
+    flex-direction: column;
+  }
+
+  .thirdCol {
+    border-left: none;
+    border-top: 1px solid black;
+  }
+}
