@@ -33,5 +33,19 @@
 
 .active {
   background-color: rgb(74, 241, 158);
+  position: relative;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
   background-image: url('../images/triangle-right.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: 2;
+  top: 22%;
+  right: -23px;
 }
