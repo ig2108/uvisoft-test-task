@@ -1,63 +1,55 @@
-.contactsList__item {
-  display: flex;
-  flex-direction: row;
+.contactsList {
   width: 100%;
+  border-spacing: 1px;
+  background: black;
+}
+
+.contactsList__item {
+  vertical-align: top;
+  color: black;
+  padding-left: 5px;
 }
 
 .contactsList__item_info {
-  display: block;
-  width: 18%;
-  border: 1px solid black;
-}
-
-.contactsList__item_text {
   padding-left: 5px;
-  display: block;
-  width: 100%;
 }
 
-.firstCol {
-  width: 35%;
-  background-color: rgb(101, 155, 255);
+.second,
+.third,
+.fourth,
+.fifth {
+  width: 150px;
 }
 
-.secondCol {
-  display: flex;
-  flex-direction: row;
-  width: 35%;
-  background-color: rgb(40, 255, 136);
+.first {
+  background: rgb(87, 139, 250);
 }
 
-.thirdCol {
-  background-color: rgb(40, 255, 136);
-  border-left: 1px solid black;
+.second,
+.third {
+  background: rgb(247, 183, 45);
 }
 
-.fourthCol {
-  background-color: rgb(252, 195, 89);
+.fourth,
+.fifth {
+  background: rgb(25, 167, 49);
 }
 
-.fifthCol {
-  background-color: rgb(252, 195, 89);
+.header {
+  background: white;
+  text-align: left;
 }
 
-.List_header {
-  font-weight: bold;
-  background-color: #fff;
-  height: 30px;
+.tablet_view {
+  display: none;
 }
 
 @media (max-width: 768px) {
-  .contactsList__item_text {
-    width: 100%;
+  .tablet_view {
+    display: table-row;
   }
 
-  .secondCol {
-    flex-direction: column;
-  }
-
-  .thirdCol {
-    border-left: none;
-    border-top: 1px solid black;
+  .desk_view {
+    display: none;
   }
 }

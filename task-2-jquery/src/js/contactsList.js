@@ -1,108 +1,95 @@
-'use strict';
 
-import refs from './refs';
 import contacts from '../contacts.json';
 
-// Contacts List
-import headerContactsListTemplate from '../templates/contactsList/headerContactsList.hbs';
-import contactsListTemplate from '../templates/contactsList/contactsList.hbs';
+// Contacts List Templates
+import contactsListHeaderTemplate from '../templates/contactsList/contactsListHeader.hbs';
+import contactsListTemplate from '../templates/contactsList/contactList.hbs';
 
-// Contacts Details
+// Contacts Details Templates
 import headerContactsDetailsTemplate from '../templates/contactsDetails/headerContactsDetails.hbs';
 import contactsDetailsTemplate from '../templates/contactsDetails/contactsDetails.hbs';
 
-// Contact Info
+// Contact Info Templates
 import headerContactInfoTemplate from '../templates/contactInfo/headerContactInfo.hbs';
-import contactInfoTemplate from '../templates/contactInfo/contactInfo.hbs';
+import contactInfoTemplate from '../templates/contactInfo/contactInfo.hbs'
 
-// Sync code
-
-startingPage();
+$(document).ready(function () {
+  startingPage();
+});
 
 // Functions
 
-function startingPage () {
-  addClassVisuallyHidden(refs.contactInfo);
-  buildContactsListMarkup(contacts, contactsListTemplate, headerContactsListTemplate, refs.contactsList);
-  const contactsListItem = document.querySelectorAll('li.contactsList__item');
-  contactsListItem.forEach(item => item.addEventListener("click", openContactsDetails));
+function startingPage() {
+  $('#contactInfo').hide()
+  buildContactsListMarkup(contacts, contactsListTemplate, contactsListHeaderTemplate, '#contactsList');
+  $('tr.contactsList__item').on('click', openContactsDetails);
+
 };
 
 function buildDetailsInfo (id) {
-  clearMarkup(refs.contactInfo);
-  addActiveClassToContact("li", id);
+  clearMarkup("#contactInfo");
+  addActiveClassToElement('li', id);
 
   const currentContact = findContactById(contacts, id);
-  buildInfoMarkup(currentContact.details, contactInfoTemplate, headerContactInfoTemplate, refs.contactInfo);
-
-  const closeButton = document.querySelector('button.contactInfo__item_button');
-  closeButton.addEventListener('click', closeContactDetails);
+  buildInfoMarkup(currentContact.details, contactInfoTemplate, headerContactInfoTemplate, "#contactInfo")
+  $('button.contactInfo__item_button').on('click', closeContactDetails)
 };
 
 // Build markup functions
 
-function buildContactsListMarkup(contactItems, contactsTemplate, headerTemplate, element) {
-  clearMarkup(element);
+function buildContactsListMarkup (contactItems, contactsTemplate, headerTemplate, selector) {
+  clearMarkup(selector);
   const headerMarkup = headerTemplate();
   const mainMarkup = contactItems.map(contactItem => contactsTemplate(contactItem)).join('');
   const markup = headerMarkup + mainMarkup;
-  element.insertAdjacentHTML('beforeend', markup);
+  insertMarkup(selector, markup);
 };
 
-function buildInfoMarkup (contactItem, contactsTemplate, headerTemplate, element) {
-  removeClassVisuallyHidden(refs.contactInfo);
+function buildInfoMarkup (contactItem, contactsTemplate, headerTemplate, selector) {
+  $(selector).show()
   const headerMarkup = headerTemplate();
   const mainMarkup = contactsTemplate(contactItem);
   const markup = headerMarkup + mainMarkup;
-  element.insertAdjacentHTML('beforeend', markup);
+  insertMarkup(selector, markup);
 };
 
 // Event functions
 
 function openContactsDetails(e) {
   e.preventDefault();
-  const currentId = Number(e.currentTarget.dataset.id);
+  const currentId = Number($(this).attr('data-id'));
   if (!currentId) {
     return;
   };
-  clearMarkup(refs.contactsList);
-  buildContactsListMarkup(contacts, contactsDetailsTemplate, headerContactsDetailsTemplate, refs.contactsDetails);
+  clearMarkup($('#contactsList'));
+  buildContactsListMarkup(contacts, contactsDetailsTemplate, headerContactsDetailsTemplate, '#contactsDetails');
   buildDetailsInfo(currentId);
-  const contactsList = document.querySelectorAll('li.contactsDetailsList__item');
-  contactsList.forEach(item => item.addEventListener("click", openContactsDetails));
+  $('li.contactsDetailsList__item').on('click', openContactsDetails)
 };
 
 function closeContactDetails(e) {
   e.preventDefault();
-  clearMarkup(refs.contactInfo);
-  clearMarkup(refs.contactsDetails);
+  clearMarkup("#contactInfo");
+  clearMarkup("#contactsDetails");
   startingPage();
 };
 
 // Help functions
 
-function clearMarkup(element) {
-  element.innerHTML = '';
+function clearMarkup(selector) {
+  $(selector).empty();
 };
 
-function addClassVisuallyHidden (element) {
-  element.classList.add('visually-hidden');
+function insertMarkup(selector, markup) {
+  $(selector).html(markup);
 };
 
-function removeClassVisuallyHidden (element) {
-  element.classList.remove('visually-hidden');
-};
-
-function addActiveClassToContact (elTag,id) {
-  const activeContact = document.querySelector(`${elTag}[data-id="${id}"]`);
-  activeContact.classList.add('active');
-};
+function addActiveClassToElement (elementTag, id) {
+  const element = $(`${elementTag}[data-id="${id}"]`)
+  element.addClass('active')
+}
 
 function findContactById(arr ,id) {
   return arr.find(item => item.id === id);
 };
-
-
-
-
 

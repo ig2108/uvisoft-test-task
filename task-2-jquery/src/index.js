@@ -1,7 +1,7 @@
 'use strict';
 
-import contactList from './js/contactsList';
-import jquery from './js/jquery'
+import contactsList from './js/contactsList'
+import media from './js/media'
 
 import './styles.css';
 import './css/contacts-list.css';
