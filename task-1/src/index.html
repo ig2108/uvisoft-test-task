@@ -4,48 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Uvisoft test task</title>
+    <title>Uvisoft test task 1</title>
   </head>
 
   <body>
-    <div class="container">
-      <section class="section">
-        <ul class="content">
-          <li class="content__item first">
-            <p class="content__item_text">content 1.1</p>
-          </li>
-          <li class="content__item second">
-            <p class="content__item_text">
-              content 2.1 Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quia, ullam.
-            </p>
-            <p class="content__item_text third">content 3.1</p>
-          </li>
-          <li class="content__item second fourth">
-            <p class="content__item_text">content 4.1</p>
-            <p class="content__item_text third fifth">
-              content 5.1
-            </p>
-          </li>
-        </ul>
-        <ul class="content">
-          <li class="content__item first">
-            <p class="content__item_text">content 1.2</p>
-          </li>
-          <li class="content__item second">
-            <p class="content__item_text">content 2.2</p>
-            <p class="content__item_text third">content 3.2</p>
-          </li>
+    <table class="table">
+      <tr class="row">
+        <td rowspan="1" class="row__item first">Content 1.1</td>
+        <td class="row__item second">
+          Content 2.1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </td>
+        <td class="row__item third desk_view">Content 3.1</td>
+        <td class="row__item fourth">Content 4.1</td>
+        <td class="row__item fifth desk_view">Content 5.1</td>
+      </tr>
+      <tr class="row tablet_view">
+        <td class="row__item third">Content 3.1</td>
+        <td class="row__item fifth">Content 5.1</td>
+      </tr>
+      <tr class="row">
+        <td rowspan="1" class="row__item first">Content 1.2</td>
+        <td class="row__item second">Content 2.2</td>
+        <td class="row__item third desk_view">Content 3.2</td>
+        <td class="row__item fourth">Content 4.2</td>
+        <td class="row__item fifth desk_view">Content 5.2</td>
+      </tr>
+      <tr class="row tablet_view">
+        <td class="row__item third">Content 3.2</td>
+        <td class="row__item fifth">Content 5.2</td>
+      </tr>
+    </table>
 
-          <li class="content__item second fourth">
-            <p class="content__item_text">
-              content 4.2
-            </p>
-            <p class="content__item_text third fifth">content 5.2</p>
-          </li>
-        </ul>
-      </section>
-    </div>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

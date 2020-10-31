@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{L1EO:function(n,i,o){},QfWi:function(n,i,o){"use strict";o.r(i),function(n){o("L1EO");function i(i,o){n(o).attr("rowspan",i)}function t(){!function(n){i(n<769?"2":"1","td.first")}(window.innerWidth)}n(document).ready((function(){t(),n(window).on("resize",t)}))}.call(this,o("qIEf"))}},[["QfWi",1,2]]]);
+//# sourceMappingURL=main.3d75b5c156a914275831.js.map

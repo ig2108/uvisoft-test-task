@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Смородина Алена Александровна",
+    "phone": "0987658923",
+    "email": "alenasmorodina@gmail.com",
+    "skype": "alenasmorodina",
+    "comment": "Встреча завтра на 11:00.",
+    "details": {
+      "addedAt": "20.05.18",
+      "age": 24,
+      "status": "unmarried",
+      "work": " Not work",
+      "education": "KNUTE"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Мироненко-Коновалов Александр Игнатьевич",
+    "phone": "0506123123",
+    "email": "milanovalex@ua.fm",
+    "skype": "Milanovalex",
+    "comment": "Созвониться в пятницу 05.07.2019.",
+    "details": {
+      "addedAt": "21.05.18",
+      "age": 23,
+      "status": "не женат",
+      "work": "Фора, кассир",
+      "education": "Высшее, НТУУ КПИ, Финансы и кредит"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Зайченко Валентина Александровна",
+    "phone": "0966671290",
+    "email": "zay4enkovalya@mail.ru",
+    "skype": "zay4enkovalya",
+    "comment": "Очень занят в ближайшие 2 недели. 10.05.2019.",
+    "details": {
+      "addedAt": "22.05.18",
+      "age": 25,
+      "status": "unmarried",
+      "work": "McDonald's",
+      "education": "КПИ"
+    }
+  }
+]
